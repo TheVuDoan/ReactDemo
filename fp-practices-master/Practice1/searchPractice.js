@@ -5,7 +5,7 @@ function binarySearch(input, target) {
   const temp = input[mid];
   const leftArr = input.filter(item => item < temp);
   const rightArr = input.filter(item => item > temp);
-  return input.length === 0 ? -1 : (target === temp ? mid : (target < temp ? binarySearch(leftArr,target) : mid + 1 + binarySearch(rightArr,target)));
+  return input.length === 0 ? -1 : (target === temp ? mid : (target < temp ? binarySearch(leftArr,target) : binarySearch(rightArr,target) === -1 ? -1 : mid + 1 + binarySearch(rightArr,target)));
 }
 
 module.exports = binarySearch
